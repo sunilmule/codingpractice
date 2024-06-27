@@ -7,28 +7,31 @@ using System.Threading.Tasks;
 namespace ConsoleApp1.PracticeProblem
 {
 
-    public class DutchNationalProblem
+    public class DutchNationalProblem : IProblemFactory
     {
         private int[] data = new int[] { 2, 1, 2, 0, 0, 1, 1, 2, 1, 0, 0, 0 };
 
-        public void SolveDNP()
+        public void Solve()
+        {
+            SolveDNP();
+        }
+
+        private void SolveDNP()
         {
             int start = 0;
             int middle = 0;
             int end = data.Length - 1;
+            Console.Write("Input Array : ");
             Console.WriteLine(string.Join(",", data));
-            Console.WriteLine("Before starting");
 
-            while (middle<=end)
+
+            while (middle <= end)
             {
-                int temp;
                 switch (data[middle])
                 {
                     case 0:
                         {
-                            temp = data[start];
-                            data[start] = data[middle];
-                            data[middle] = temp;
+                            Swap(start, middle);
                             middle++;
                             start++;
                         }
@@ -38,18 +41,24 @@ namespace ConsoleApp1.PracticeProblem
                         break;
                     case 2:
                         {
-                            temp = data[end];
-                            data[end] = data[middle];
-                            data[middle] = temp;
-                            
+                            Swap(middle, end);
                             end--;
                         }
                         break;
                 }
 
-                Console.WriteLine(string.Join(",",data));
+                Console.WriteLine(string.Join(",", data));
 
             }
+
+            Console.Write($"Final O/p Array : {string.Join(",", data)}");
+        }
+
+        private void Swap(int index1, int index2)
+        {
+            int temp = data[index1];
+            data[index1] = data[index2];
+            data[index2] = temp;
         }
     }
 }

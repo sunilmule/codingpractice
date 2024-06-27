@@ -1,11 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ConsoleApp1.PracticeProblem;
 
-Console.WriteLine("Hello, World!");
 
-DutchNationalProblem dutchNationalProblem = new DutchNationalProblem();
+Console.WriteLine("Enter problem name");
+var input =Console.ReadLine();
+if (string.IsNullOrEmpty(input))
+    input = "default";
 
- dutchNationalProblem.SolveDNP();
+IProblemFactory problemFactory = ProblemFactory.GetProblemFactory(input.Trim());
 
-Console.WriteLine("abc");
+problemFactory.Solve();
+ 
 Console.ReadLine();
