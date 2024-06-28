@@ -17,6 +17,8 @@ namespace ConsoleApp1.PracticeProblem
                 case "dnp":
                 case "dutchnationalflagproblem" :
                     return new DutchNationalProblem();
+                case "shipdays":
+                    return new CapacityToShipPackages();
                 default:
                     return new DefaultProblem();
             }
