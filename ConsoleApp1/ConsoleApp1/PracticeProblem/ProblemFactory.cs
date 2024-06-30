@@ -25,6 +25,10 @@ namespace ConsoleApp1.PracticeProblem
                 case "CMW":
                 case "3":
                     return new ContainerWithMostWater();
+                case "MatDiagonal":
+                case "MDS":
+                case "4":
+                    return new MatDiagonal();
                 default:
                     return new DefaultProblem();
             }
