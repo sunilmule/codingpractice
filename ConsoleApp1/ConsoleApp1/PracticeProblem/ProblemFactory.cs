@@ -29,6 +29,15 @@ namespace ConsoleApp1.PracticeProblem
                 case "MDS":
                 case "4":
                     return new MatDiagonal();
+                case "Decode":                
+                case "decode":                
+                case "5":
+                    return new Decode();
+
+                case "StairClimb":
+                case "stairclimb":
+                case "6":
+                    return new StairMinCost();
                 default:
                     return new DefaultProblem();
             }
